@@ -68,6 +68,7 @@ body {
 .main-nav {
   display: flex;
   justify-content: space-between;
+  align-self: center;
   align-items: center;
   padding: 5px 20px;
 
@@ -77,6 +78,7 @@ body {
   font-weight: bold;
   color: #2c3e50;
 }
+
 
 .main-nav button {
   font-weight: bold;
@@ -233,6 +235,9 @@ body {
 .sign-in-icon {
   font-size: 5rem;
 }
+
+
+
 
 .input-remember {
   display: flex;

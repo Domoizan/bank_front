@@ -13,7 +13,7 @@ const BlockAcc = ({ val })=>{
         <section className={classe} >
         <div className="account-content-wrapper" >
             <h3 className="account-title">{val.AccLib}</h3>
-            <p className="account-amount">{val.AccDevise}{val.AccSold}</p>
+            <p className="account-amount">{val.AccDevise.symbol}{val.AccSold}</p>
             <p className="account-amount-description">{val.AccDesc}</p>
         </div>
         <div className="account-content-wrapper cta">
