@@ -1,8 +1,11 @@
+
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
+
 const BlockAcc = ({ val })=>{
     const navigate = useNavigate()
+    
     const mode=useSelector((state)=>state.userReducer.edit)
     const handelTransaction = (e)=>{
         const AccId=e.target.dataset.id

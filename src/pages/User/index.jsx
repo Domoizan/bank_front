@@ -11,10 +11,6 @@ const User  = ()=>{
   const logged=useSelector((state)=>state.userReducer.logged)
   const classe =mode?"main-user":"main bg-dark"
 
-
-
-
-
 if (logged){
   return(
   <>

@@ -28,12 +28,6 @@ const Menu = ({lnks}) =>{
         navigate('/')
     }
 
-    
-
-
-
-
-
     return (
         <>
             {

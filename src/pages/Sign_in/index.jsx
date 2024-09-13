@@ -1,4 +1,4 @@
-import { useDispatch} from "react-redux"
+import { useDispatch, useSelector} from "react-redux"
 import { useEffect, useState } from "react";
 import HeadNav from "../../components/HeadNav"
 import { useLoginMutation} from "../../services/userApi";
@@ -13,8 +13,10 @@ const Sign_in = ()=>{
     const navigate=useNavigate()
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [token,setToken] =useState("")
-    const [logged, setLogged] = useState(false)
+    //const [token,setToken] =useState("")
+    //const [logged, setLogged] = useState(false)
+    const logged=useSelector((state)=>state.userReducer.logged)
+    const token=useSelector((state)=>state.userReducer.token)
     const [login, {isLoading, isError, error, isSuccess, data}] = useLoginMutation()
     const [handleGetuser, errorGetuser,isOk] = useGetuser()
     const dispatch=useDispatch()
@@ -38,7 +40,7 @@ const Sign_in = ()=>{
 
     useEffect(() => {
       token && handleGetuser(token)
-      setToken()
+      //setToken()
     }, [token, handleGetuser])
 
     if(errorGetuser){
@@ -57,8 +59,8 @@ const Sign_in = ()=>{
       switch(data.status){
         case 200: 
             dispatch(userSlice.actions.setToken({token:data.body.token,logged:true}))
-            setToken(data.body.token)
-            setLogged(true)
+            //setToken(data.body.token)
+            //setLogged(true)
             break
         case 400:
             message=`${data.message}`
