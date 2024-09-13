@@ -6,6 +6,10 @@ html {
   color: #2c3e50;
 }
 
+*{
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -380,4 +384,79 @@ body {
   .transaction-button {
     width: 200px;
   }
+}
+.hidden{
+  display:none;
+  height: 0;
+}
+
+.list_transac{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content_transac{
+  display: flex;
+  width: 80vw;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.head{
+  font-weight: 700;
+  text-align: center;
+  color:#000;
+}
+
+.tab-color{
+  color:white;
+  background-color: #00bc77;
+}
+.cel-align-left{
+  text-align: left;
+}
+.cel-align-center{
+  text-align: center;
+}
+.cel-align-right{
+  text-align:right;
+}
+.content_transac_col-x1{
+width: calc((80vw/12)*1);
+}
+
+.content_transac_col-x2{
+  width: calc((80vw/12)*2);
+}
+
+.content_transac_col-x3{
+  width: calc((80vw/12)*3);
+}
+
+.content_transac_col-x4{
+  width: calc((80vw/12)*4);
+}
+.content_transac_col-x6{
+  width: calc((80vw/12)*6);
+}
+.content_transac_col-x12{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 1rem;
+  width: 80vw;
+}
+.content_transac-button{
+  all: unset;
+  margin-left: 0.5rem;
+}
+.content_transac_col-x1,
+.content_transac_col-x2,
+.content_transac_col-x3,
+.content_transac_col-x4,
+.content_transac_col-x6{
+  height: 2rem;
+  font-size: 1rem;
+  padding: .5rem;
 }
