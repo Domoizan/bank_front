@@ -9,7 +9,11 @@ const User  = ()=>{
   const user=useSelector((state)=>state.userReducer.user)
   const mode=useSelector((state)=>state.userReducer.edit)
   const logged=useSelector((state)=>state.userReducer.logged)
+  
   const classe =mode?"main-user":"main bg-dark"
+
+
+
 
 if (logged){
   return(
@@ -17,7 +21,7 @@ if (logged){
       <HeadNav lnks=
     {[{
       lnk:`/User`,
-      txt:user.firstName,
+      txt:user.userName,
       icone:"fa fa-user-circle",
     }
   ]}

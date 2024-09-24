@@ -12,7 +12,6 @@ export const useGetuser=()=>{
         try {
         
         const rep=await getUser(token)
-        console.log(`status : ${rep.data.status}`)
         switch(rep.data.status){
             case 200 :
                 const arg={user:{

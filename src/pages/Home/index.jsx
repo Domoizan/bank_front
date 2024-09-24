@@ -11,7 +11,7 @@ import  FeatItem  from "../../components/FeatItem"
 
   const lnks=logged?[{
     lnk:`/User`,
-    txt: user.firstName,
+    txt: user.userName,
     icone:"fa fa-user-circle",
   }]:[{
     lnk:"/Sign_in",

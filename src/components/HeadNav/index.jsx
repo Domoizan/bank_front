@@ -13,7 +13,7 @@ const HeadNav = ({lnks})=>{
 
           <NavLink to="/" className="main-nav-logo">
           {
-            mode? <i class="fa-solid fa-vault"></i>:""
+            mode? <i className="fa-solid fa-vault"></i>:""
           }
             <img
               className="main-nav-logo-image"

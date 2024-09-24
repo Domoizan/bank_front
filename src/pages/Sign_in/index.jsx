@@ -13,6 +13,7 @@ const Sign_in = ()=>{
     const navigate=useNavigate()
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
     //const [token,setToken] =useState("")
     //const [logged, setLogged] = useState(false)
     const logged=useSelector((state)=>state.userReducer.logged)
@@ -20,7 +21,7 @@ const Sign_in = ()=>{
     const [login, {isLoading, isError, error, isSuccess, data}] = useLoginMutation()
     const [handleGetuser, errorGetuser,isOk] = useGetuser()
     const dispatch=useDispatch()
-    let message=""
+    
     const handleLogin = (e) => {
       e.preventDefault()
       if(username && password){
@@ -38,37 +39,40 @@ const Sign_in = ()=>{
       setPassword(pass)
     }
 
-    useEffect(() => {
+  useEffect(() => {
       token && handleGetuser(token)
       //setToken()
-    }, [token, handleGetuser])
+    }, [token])
 
+  useEffect(() => {
     if(errorGetuser){
-      message=errorGetuser
+      setMessage(errorGetuser)
     }
     if(isOk){
       navigate('/user')
     }
-
     if(isError){
-      message = error.data.message
+      setMessage(error.data.message)
     }
+  },[errorGetuser,isOk,isError])
 
-
+  useEffect(() => {
     if(isSuccess && !logged){
       switch(data.status){
         case 200: 
-            dispatch(userSlice.actions.setToken({token:data.body.token,logged:true}))
+            dispatch(userSlice.actions.setToken({token:data.body.token}))
+            dispatch(userSlice.actions.setLogged({logged:true}))
             //setToken(data.body.token)
             //setLogged(true)
             break
         case 400:
-            message=`${data.message}`
+            setMessage(`${data.message}`)
             break
         default: return
       }
  
     }
+  },[isSuccess])
 
   return(
   <>
@@ -89,8 +93,6 @@ const Sign_in = ()=>{
             isLoading={isLoading} 
             isError={isError}
             />
-
-        
       </section>
     </main>
     <footer className="footer">

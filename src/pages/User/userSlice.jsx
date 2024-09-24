@@ -25,5 +25,7 @@ export const userSlice = createSlice({
             return {...state, ...action.payload}}, 
         setToken : (state, action) => {
             return {...state, ...action.payload}}, 
+        setLogged : (state, action) => {
+            return {...state, ...action.payload}}, 
     }
 })
