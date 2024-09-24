@@ -91,6 +91,7 @@ body {
   background: none;
   font-size: inherit;
   font-family: inherit;
+  cursor: pointer;
 }
 
 
@@ -409,7 +410,7 @@ body {
   color:#000;
 }
 
-.tab-color{
+.transac-tab-color{
   color:white;
   background-color: #00bc77;
 }
@@ -450,13 +451,19 @@ width: calc((80vw/12)*1);
 .content_transac-button{
   all: unset;
   margin-left: 0.5rem;
+  cursor: pointer;
 }
 .content_transac_col-x1,
 .content_transac_col-x2,
 .content_transac_col-x3,
 .content_transac_col-x4,
 .content_transac_col-x6{
+  display: flex;
   height: 2rem;
   font-size: 1rem;
   padding: .5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  
 }

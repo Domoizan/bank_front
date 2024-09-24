@@ -43,15 +43,16 @@ const Menu = ({lnks}) =>{
                     )
                 )
             }
-            {(logged && mode)?<i class="fa-solid fa-gear"> </i>:" "}
-            {(logged && mode)?
+            {(logged && mode)?<i className="fa-solid fa-gear"> </i>:" "}
+            {logged?mode?
                 <button className="main-nav-item" onClick={logout}>
-                    <i class="fa-solid fa-power-off"></i> 
+                    <i className="fa-solid fa-power-off"></i> 
                 </button>
                 :
                 <button className="main-nav-item" onClick={logout}>
-                    <i className="fa fa-sign-out"> </i>Sign Out
+                    <i className="fa fa-sign-out"></i>Sign Out
                 </button>
+                :""
             }
         </>
     )

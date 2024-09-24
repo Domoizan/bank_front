@@ -6,10 +6,15 @@ import { useDispatch } from "react-redux";
 
 export const useUpdateuser=()=>{
     const dispatch = useDispatch()
-    const [errorPutuser,setError] = useState()
+    const [errorPutuser,setError] = useState(false)
     const [isOK,setIsOK] = useState(false)
+    const [msg,setMsg] = useState("")
     const [updateUser] = useUpdateUserMutation()
     const handleUpdateuser = async (token,userData) => {
+        setMsg("")
+        setError(false)
+        setIsOK(false)
+        setError(false)
         try {
         const rep=await updateUser({token:token,userData:userData})
         if(rep.data){
@@ -23,7 +28,9 @@ export const useUpdateuser=()=>{
                         id:rep.data.body.id,
                     }}
                     dispatch(userSlice.actions.getUser(arg))
-                    setIsOK(true)  
+                    setIsOK(true) 
+                    
+                    setMsg("Successfully updated") 
                     break
                 default : setError("Error inattendu")
             }
@@ -43,5 +50,5 @@ export const useUpdateuser=()=>{
         }
         };
 
-        return [handleUpdateuser, errorPutuser, isOK ]
+        return [handleUpdateuser, errorPutuser, isOK, msg ]
 }
